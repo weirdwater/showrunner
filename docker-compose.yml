@@ -1,0 +1,21 @@
+version: "3"
+services:
+  web:
+    image: showrunner
+    ports: 
+      - "3000:3000"
+    networks:
+      - webnet
+  mongo:
+    image: mongo:3.4
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
+networks:
+  webnet:
