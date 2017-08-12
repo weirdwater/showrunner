@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "mongo": "docker stack deploy -c docker-compose.yml showrunnerstack",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
