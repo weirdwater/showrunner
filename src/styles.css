@@ -60,6 +60,16 @@ button {
   border: 1px solid var(--foreground-color);
 }
 
+button:disabled {
+  border-color: var(--alt-foreround-color);
+  color: var(--alt-foreround-color);
+}
+
+button:disabled:hover {
+  background: var(--background-color);
+  color: var(--alt-foreround-color);
+}
+
 button:hover {
   background: var(--foreground-color);
   color: var(--background-color);
