@@ -1,18 +1,35 @@
 <h1>Showrunner</h1>
 
-<h2>Users</h2>
-<ul>
-  <li *ngFor="let user of users">{{user.name}}</li>
-</ul>
+<div class="user-controls">
+  <img class="user-avatar" src="" alt="">
+  <span class="user-name">Arjo Bruijnes</span>
+  <button>Settings</button>
+  <button>Log out</button>
+</div>
 
-<h2>Shows</h2>
-<ul>
-  <li *ngFor="let show of shows">
-    {{show.title}}
-    <ul *ngIf="show.episodes">
-      <li *ngFor="let episode of show.episodes">
-        {{episode.number}} - {{episode.title}}
-      </li>
-    </ul>
-  </li>
-</ul>
+<div class="show-list">
+  <h2>Shows</h2>
+  <button>New Show</button>
+  <article class="show">
+    <img class="show-art" src="" alt="">
+    <h1 class="show-title">null10 Podcast</h1>
+    <span class="info">Technology | 1 episode</span>
+  </article>
+</div>
+
+<main>
+  <h2>null10 Podcast</h2>
+  <button>RSS</button>
+  <button>Edit</button>
+
+  <label>
+    Name:
+    <input type="text">
+  </label>
+
+  <h3>Episodes</h3>
+  <button>New Episode</button>
+  <ol>
+    <li><span>Rise of the Augs</span> <span>In de pilot aflevering duiken Jeroen, Niels en Arjo zich met volle overgave in de Podcasting wereld.</span> <button>+</button> </li>
+  </ol>
+</main>

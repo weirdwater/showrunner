@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+:Root {
+  --background-color: #fff;
+  --foreground-color: #000;
+  --alt-foreround-color: #888;
+  --alt-backround-color: #eee;
+  --heading-font: 'Roboto Slab', sans-serif;
+  --body-font: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 20px;
+  font-family: var(--body-font);
+  background: var(--background-color);
+  color: var(--foreground-color);
+}
+
+h1 {
+  font-family: var(--heading-font);
+  font-size: 2.6em;
+  font-weight: 100;
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: 1.9em;
+  font-weight: 100;
+}
+
+h3 {
+  font-family: var(--heading-font);
+  font-size: 1.6em;
+  font-weight: 100;
+}
+
+label {
+  font-family: var(--heading-font);
+  font-size: 1.1em;
+}
+
+input {
+  padding: .35em;
+  font-family: var(--heading-font);
+  font-size: .9em;
+  font-weight: 300;
+  border: 1px solid var(--foreground-color);
+}
+
+button {
+  padding: .35em .75em;
+  font-family: "Roboto Slab", sans-serif;
+  font-size: .9em;
+  font-weight: 400;
+  background: var(--background-color);
+  border: 1px solid var(--foreground-color);
+}
+
+button:hover {
+  background: var(--foreground-color);
+  color: var(--background-color);
+}
+
+button:active {
+  color: var(--foreground-color);
+}
