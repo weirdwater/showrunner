@@ -2,8 +2,8 @@
 :Root {
   --background-color: #fff;
   --foreground-color: #000;
-  --alt-foreround-color: #888;
-  --alt-backround-color: #eee;
+  --alt-foreground-color: #888;
+  --alt-background-color: #eee;
   --heading-font: 'Roboto Slab', sans-serif;
   --body-font: 'Roboto', sans-serif;
 }
@@ -56,18 +56,19 @@ button {
   font-family: "Roboto Slab", sans-serif;
   font-size: .9em;
   font-weight: 400;
+  color: var(--foreground-color);
   background: var(--background-color);
   border: 1px solid var(--foreground-color);
 }
 
 button:disabled {
-  border-color: var(--alt-foreround-color);
-  color: var(--alt-foreround-color);
+  border-color: var(--alt-foreground-color);
+  color: var(--alt-foreground-color);
 }
 
 button:disabled:hover {
   background: var(--background-color);
-  color: var(--alt-foreround-color);
+  color: var(--alt-foreground-color);
 }
 
 button:hover {
@@ -76,5 +77,5 @@ button:hover {
 }
 
 button:active {
-  color: var(--foreground-color);
+  color: var(--alt-foreground-color);
 }
