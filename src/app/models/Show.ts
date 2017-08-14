@@ -4,4 +4,6 @@ export interface Show {
   _id: string;
   title: string;
   episodes: Episode[];
+  category: string;
+  art: string;
 }
