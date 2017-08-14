@@ -6,6 +6,7 @@
   --alt-background-color: #eee;
   --heading-font: 'Roboto Slab', sans-serif;
   --body-font: 'Roboto', sans-serif;
+  --the-border: 1px solid var(--foreground-color);
 }
 
 * {
@@ -78,4 +79,5 @@ button:hover {
 
 button:active {
   color: var(--alt-foreground-color);
+  background: var(--foreground-color);
 }

@@ -1,0 +1,9 @@
+<h2 class="list-title" >Shows</h2>
+<button class="new-show" >New Show</button>
+<article class="show" *ngFor="let show of shows">
+  <img class="art" [src]="'/assets/' + show.art" alt="" />
+  <div class="summary" >
+    <h1 class="title">{{show.title}}</h1>
+    <span class="info">{{show.category}} | {{show.episodes | numberOfEpisodes}}</span>
+  </div>
+</article>
