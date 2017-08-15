@@ -4,8 +4,8 @@
 
 <h3>Episodes</h3>
 <button>New Episode</button>
-<ol>
-  <li *ngFor="let ep of show.episodes">
+<ol class="episodes">
+  <li *ngFor="let ep of show.episodes" [value]="ep.number">
     <span>{{ep.title}}</span>
   </li>
 </ol>
