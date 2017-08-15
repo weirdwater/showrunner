@@ -8,6 +8,7 @@ import { UserControlsComponent } from './user-controls/user-controls.component';
 import { ModalComponent } from './modal/modal.component';
 import { ShowsListComponent } from './shows-list/shows-list.component';
 import {NumberOfEpisodesPipe} from './pipes/number-of-episodes.pipe';
+import { ShowDetailsComponent } from './show-details/show-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {NumberOfEpisodesPipe} from './pipes/number-of-episodes.pipe';
     UserControlsComponent,
     ShowsListComponent,
     NumberOfEpisodesPipe,
-    ModalComponent
+    ModalComponent,
+    ShowDetailsComponent
   ],
   imports: [
     HttpClientModule,

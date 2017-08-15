@@ -4,19 +4,4 @@
 
 <app-shows-list [shows]="shows" ></app-shows-list>
 
-<main>
-  <h2>null10 Podcast</h2>
-  <button>RSS</button>
-  <button>Edit</button>
-
-  <label>
-    Name:
-    <input type="text">
-  </label>
-
-  <h3>Episodes</h3>
-  <button>New Episode</button>
-  <ol>
-    <li><span>Rise of the Augs</span> <span>In de pilot aflevering duiken Jeroen, Niels en Arjo zich met volle overgave in de Podcasting wereld.</span> <button>+</button> </li>
-  </ol>
-</main>
+<app-show-details [show]="shows[0]"></app-show-details>
