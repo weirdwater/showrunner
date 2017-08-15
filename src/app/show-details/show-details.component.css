@@ -1,3 +1,70 @@
+:Host {
+  border: 1px solid var(--foreground-color);
+  display: block;
+}
+
+.show-header {
+  padding: .6em;
+  display: flex;
+  align-items: center;
+}
+
+.show-header button:first-of-type {
+  margin-left: auto;
+  margin-right: .5em;
+}
+
+.art {
+  width: 12.5em;
+  height: 12.5em;
+  object-fit: cover;
+}
+
+.episodes-header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: .6em;
+}
+
 .episodes {
-  list-style-position: inside;
+  list-style: none;
+}
+
+.episode {
+  padding: .6em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 1px solid var(--foreground-color);
+}
+
+.episode-number {
+  margin: 0 .5em;
+  font-family: 'Roboto Mono Light for Powerline', monospace;
+  font-size: 1.6em;
+  font-weight: 200;
+}
+
+.episode-title {
+  margin-right: .5em;
+  font-family: var(--heading-font);
+  font-size: 1.4em;
+  font-weight: 400;
+}
+
+.episode-description {
+  font-family: var(--heading-font);
+  font-weight: 200;
+  color: var(--alt-foreground-color);
+}
+
+.episode-summary {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.expand {
+  margin: .3em 1em
 }

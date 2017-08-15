@@ -2,6 +2,7 @@
 
 <app-user-controls></app-user-controls>
 
-<app-shows-list [shows]="shows" ></app-shows-list>
 
-<app-show-details [show]="shows[0]"></app-show-details>
+<app-shows-list *ngIf="shows" [shows]="shows" ></app-shows-list>
+
+<app-show-details *ngIf="shows" [show]="shows[0]"></app-show-details>

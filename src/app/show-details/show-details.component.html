@@ -1,11 +1,25 @@
-<h2>{{show.title}}</h2>
-<button>RSS</button>
-<button>Edit</button>
+<div class="show-header">
+  <h2 class="title">{{show.title}}</h2>
+  <button class="rss">RSS</button>
+  <button class="edit">Edit</button>
+</div>
 
-<h3>Episodes</h3>
-<button>New Episode</button>
+<img class="art" [src]="'/assets/' + show.art" alt="" />
+
+<label>Category</label>
+<span>{{show.category}}</span>
+
+<div class="episodes-header">
+  <h3>Episodes</h3>
+  <button>New Episode</button>
+</div>
 <ol class="episodes">
-  <li *ngFor="let ep of show.episodes" [value]="ep.number">
-    <span>{{ep.title}}</span>
+  <li *ngFor="let ep of show.episodes" class="episode" [value]="ep.number">
+    <span class="episode-number">{{ep.number}}</span>
+    <div class="episode-summary">
+      <span class="episode-title">{{ep.title}}</span>
+      <span class="episode-description">In de pilot aflevering van null10 duiken Joeri, Niels en Arjo met uitgestrekte nek de podcast wereld in.</span>
+    </div>
+    <button class="expand">+</button>
   </li>
 </ol>
