@@ -1,0 +1,17 @@
+header {
+  padding: 2em .6em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+app-user-controls {
+  margin-left: auto;
+}
+
+@media (max-width: 720px) {
+  .app-name {
+    order: 2;
+  }
+}
