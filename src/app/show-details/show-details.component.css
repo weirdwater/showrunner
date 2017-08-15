@@ -1,5 +1,6 @@
 :Host {
   border: 1px solid var(--foreground-color);
+  border-top: none;
   display: block;
 }
 
