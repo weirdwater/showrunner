@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   title = 'app';
   users: User[];
   shows: Show[];
+  show: Show;
 
   constructor (private api: DataService) {}
 
@@ -37,5 +38,12 @@ export class AppComponent implements OnInit {
       }, err => {
         console.error(err);
       });
+
+    this.api.getShow('null10-podcast').subscribe(
+      res => res.status === 200
+        ? this.show = res.data
+        : console.error(`Get Show: ${res.status} - ${res.message}`),
+      err => console.error(err)
+    );
   }
 }
