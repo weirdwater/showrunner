@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service';
 import {Show} from '../models/Show';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-shows-page',
@@ -11,12 +13,15 @@ export class ShowsPageComponent implements OnInit {
 
   show: Show;
 
-  constructor(private api: DataService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private api: DataService) { }
 
   ngOnInit() {
-    this.api.getShow('unfilter-mp3').subscribe(
-      res => this.show = res.data,
-      console.error);
+    this.route.paramMap
+      .switchMap(params => this.api.getShow(params.get('slug')))
+      .subscribe(res => this.show = res.data, console.error);
   }
 
 }
