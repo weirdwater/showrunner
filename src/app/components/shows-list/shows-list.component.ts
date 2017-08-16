@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Show} from "../../models/Show";
+import {Show} from '../../models/Show';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-shows-list',
@@ -11,7 +12,10 @@ export class ShowsListComponent implements OnInit {
   @Input()
   shows: Show[];
 
-  constructor() { }
+  @Input()
+  onSelect: (show: Show) => void;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
