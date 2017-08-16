@@ -1,6 +1,6 @@
 import {Episode} from './Episode';
 
-export interface Show {
+export class Show {
   _id: string;
   title: string;
   slug: string;
