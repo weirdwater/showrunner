@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Episode } from '../models/Episode';
+import {Component, Input, OnInit} from '@angular/core';
 import { Show } from '../models/Show';
 
 @Component({
@@ -28,25 +26,11 @@ export class ShowFormComponent {
     'TV & Film'
   ];
 
-  model = new Show(
-    null,
-    'Connected blijven',
-    'connected-blijven',
-    [{number: 1, title: 'Hello London'}],
-    'Technology',
-    'art.png',
-    'Je moet connected blijven weetje',
-    '(c) 2017',
-    'https://example.com/',
-    'nl-NL',
-    'Michiel de Ruijter'
-  );
+  @Input()
+  model = new Show();
 
-  submitted = false;
-
-  onSubmit () {
-    this.submitted = true;
-  }
+  @Input()
+  onSubmit: (show: Show) => void;
 
   get diagnostic () {
     return JSON.stringify(this.model);
