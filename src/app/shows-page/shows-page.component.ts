@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
 import {Show} from '../models/Show';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
@@ -12,6 +12,8 @@ import 'rxjs/add/operator/switchMap';
 export class ShowsPageComponent implements OnInit {
 
   show: Show;
+  slug: string;
+  noShow = false;
 
   constructor(
     private route: ActivatedRoute,

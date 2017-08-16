@@ -68,6 +68,7 @@ router.get('/shows/:id', (req, res) => {
 
         response.status = 404;
         response.message = `No show found with the slug: ${slug}`
+        console.error(`404 - No show found with the slug: ${slug}`)
         res.status(404)
         res.json(response)
       })

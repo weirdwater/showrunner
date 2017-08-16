@@ -1,8 +1,8 @@
 <app-shows-list-page>
 
-  <div *ngIf="!show" >
+  <div *ngIf="noShow">
     <h2>No show selected</h2>
-    <p>Pick a show from the left to get started.</p>
+    <p>To get started, select a show from the right or create a new show.</p>
   </div>
 
   <app-show-details *ngIf="show" [show]="show"></app-show-details>
