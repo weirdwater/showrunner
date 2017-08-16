@@ -63,6 +63,7 @@ router.get('/shows/:id', (req, res) => {
         if (show) {
           response.data = show
           res.json(response)
+          return
         }
 
         response.status = 404;
