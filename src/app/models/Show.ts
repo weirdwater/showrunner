@@ -7,4 +7,9 @@ export interface Show {
   episodes: Episode[];
   category: string;
   art: string;
+  description: string;
+  copyright: string;
+  link: string;
+  language: string;
+  author: string;
 }
