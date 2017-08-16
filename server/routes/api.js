@@ -54,4 +54,26 @@ router.get('/shows', (req, res) => {
 	})
 })
 
+router.get('/shows/:id', (req, res) => {
+  const slug = req.params.id;
+  connection(db => {
+    db.collection('shows')
+      .findOne({ slug })
+      .then(show => {
+        if (show) {
+          response.data = show
+          res.json(response)
+        }
+
+        response.status = 404;
+        response.message = `No show found with the slug: ${slug}`
+        res.status(404)
+        res.json(response)
+      })
+      .catch(err => {
+        sendError(err, res)
+      })
+  })
+})
+
 module.exports = router
