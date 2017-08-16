@@ -1,19 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import {DataService} from './data.service';
-import {HttpClientModule} from '@angular/common/http';
+import { DataService } from './data.service';
 import { UserControlsComponent } from './components/user-controls/user-controls.component';
 import { ModalComponent } from './modal/modal.component';
 import { ShowsListComponent } from './components/shows-list/shows-list.component';
-import {NumberOfEpisodesPipe} from './pipes/number-of-episodes.pipe';
+import { NumberOfEpisodesPipe} from './pipes/number-of-episodes.pipe';
 import { ShowDetailsComponent } from './components/show-details/show-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageComponent } from './page/page.component';
-import {AppRoutingModule} from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { ShowsListPageComponent } from './shows-list-page/shows-list-page.component';
 import { ShowsPageComponent } from './shows-page/shows-page.component';
+import { ShowFormComponent } from './show-form/show-form.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { ShowsPageComponent } from './shows-page/shows-page.component';
     PageNotFoundComponent,
     PageComponent,
     ShowsListPageComponent,
-    ShowsPageComponent
+    ShowsPageComponent,
+    ShowFormComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [DataService],
