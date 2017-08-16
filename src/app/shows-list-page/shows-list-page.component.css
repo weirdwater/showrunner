@@ -1,0 +1,5 @@
+main {
+  border: 1px solid var(--foreground-color);
+  border-left: none;
+  grid-column: 2 / -1;
+}

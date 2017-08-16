@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Show} from "../models/Show";
+import {Show} from "../../models/Show";
 
 @Component({
   selector: 'app-shows-list',
