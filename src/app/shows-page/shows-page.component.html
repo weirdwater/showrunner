@@ -1,4 +1,10 @@
 <app-shows-list-page>
-  <h2>No show selected</h2>
-  <p>Pick a show from the left to get started.</p>
+
+  <div *ngIf="!show" >
+    <h2>No show selected</h2>
+    <p>Pick a show from the left to get started.</p>
+  </div>
+
+  <app-show-details *ngIf="show" [show]="show"></app-show-details>
+
 </app-shows-list-page>

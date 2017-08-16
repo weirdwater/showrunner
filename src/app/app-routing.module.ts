@@ -6,6 +6,7 @@ import {ShowsPageComponent} from './shows-page/shows-page.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'shows', pathMatch: 'full'},
+  {path: 'shows/:slug', component: ShowsPageComponent},
   {path: 'shows', component: ShowsPageComponent},
   {path: '**', component: PageNotFoundComponent}
 ]
