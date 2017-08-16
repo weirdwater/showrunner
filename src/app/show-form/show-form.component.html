@@ -13,7 +13,9 @@
 
   <label for="category">
     Category:
-    <input type="text" id="category">
+    <select id="category">
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
   </label>
 
   <label for="art">

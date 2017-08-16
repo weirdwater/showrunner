@@ -44,17 +44,18 @@ label {
   font-size: 1.1em;
 }
 
-input {
+input, select {
   padding: .35em;
   font-family: var(--heading-font);
   font-size: .9em;
   font-weight: 300;
   border: 1px solid var(--foreground-color);
+  background: var(--background-color);
 }
 
 button {
   padding: .35em .75em;
-  font-family: "Roboto Slab", sans-serif;
+  font-family: var(--heading-font);
   font-size: .9em;
   font-weight: 400;
   color: var(--foreground-color);
