@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Show } from '../models/Show';
+import { Show } from '../../models/Show';
 
 @Component({
   selector: 'app-show-form',
@@ -31,9 +31,5 @@ export class ShowFormComponent {
 
   @Input()
   onSubmit: (show: Show) => void;
-
-  get diagnostic () {
-    return JSON.stringify(this.model);
-  }
 
 }

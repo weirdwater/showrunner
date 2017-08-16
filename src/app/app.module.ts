@@ -6,16 +6,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
 import { UserControlsComponent } from './components/user-controls/user-controls.component';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from './components/modal/modal.component';
 import { ShowsListComponent } from './components/shows-list/shows-list.component';
 import { NumberOfEpisodesPipe} from './pipes/number-of-episodes.pipe';
 import { ShowDetailsComponent } from './components/show-details/show-details.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PageComponent } from './page/page.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PageComponent } from './pages/page/page.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ShowsListPageComponent } from './shows-list-page/shows-list-page.component';
-import { ShowsPageComponent } from './shows-page/shows-page.component';
-import { ShowFormComponent } from './show-form/show-form.component';
+import { ShowsListPageComponent } from './pages/shows-list-page/shows-list-page.component';
+import { ShowsPageComponent } from './pages/shows-page/shows-page.component';
+import { ShowFormComponent } from './components/show-form/show-form.component';
+import { NewShowPageComponent } from './pages/new-show-page/new-show-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ShowFormComponent } from './show-form/show-form.component';
     PageComponent,
     ShowsListPageComponent,
     ShowsPageComponent,
-    ShowFormComponent
+    ShowFormComponent,
+    NewShowPageComponent
   ],
   imports: [
     HttpClientModule,

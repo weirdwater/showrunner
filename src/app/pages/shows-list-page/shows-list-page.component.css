@@ -2,4 +2,9 @@ main {
   border: 1px solid var(--foreground-color);
   border-left: none;
   grid-column: 2 / -1;
+  overflow: auto;
+}
+
+app-shows-list {
+  overflow: auto;
 }

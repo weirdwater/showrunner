@@ -20,4 +20,8 @@ export class ShowsListComponent implements OnInit {
   ngOnInit() {
   }
 
+  newShow () {
+    this.router.navigate(['/shows/new']);
+  }
+
 }

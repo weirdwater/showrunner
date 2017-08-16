@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {DataService} from '../data.service';
-import {Show} from '../models/Show';
+import {DataService} from '../../data.service';
+import {Show} from '../../models/Show';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
