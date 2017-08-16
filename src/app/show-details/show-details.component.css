@@ -1,6 +1,5 @@
 :Host {
   border: 1px solid var(--foreground-color);
-  border-top: none;
   display: block;
 }
 
@@ -40,6 +39,10 @@
   border-top: 1px solid var(--foreground-color);
 }
 
+.episode:last-of-type {
+  border-bottom: 1px solid var(--foreground-color);
+}
+
 .episode-number {
   margin: 0 .5em;
   font-family: 'Roboto Mono Light for Powerline', monospace;
@@ -64,8 +67,9 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  margin-right: .5em;
 }
 
 .expand {
-  margin: .3em 1em
+  margin: .1em 0 .1em auto;
 }

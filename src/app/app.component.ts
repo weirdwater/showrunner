@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
         console.error(err);
       });
 
-    this.api.getShow('null10-podcast').subscribe(
+    this.api.getShow('syntax-fm').subscribe(
       res => res.status === 200
         ? this.show = res.data
         : console.error(`Get Show: ${res.status} - ${res.message}`),

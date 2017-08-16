@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  align-content: flex-start;
   border: 1px solid black;
 }
 
@@ -22,6 +23,11 @@
   display: flex;
   align-items: center;
   padding: .5em;
+}
+
+.show:last-of-type {
+  margin-bottom: auto;
+  border-bottom: 1px solid var(--foreground-color);
 }
 
 .show:hover {
