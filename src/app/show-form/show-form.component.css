@@ -1,4 +1,8 @@
-label {
+label, button {
+  margin: 1em 1em 0;
   display: block;
-  margin: 1em;
+}
+
+input, select {
+  margin-left: 1em;
 }
