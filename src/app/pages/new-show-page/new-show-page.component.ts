@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Show} from "../../models/Show";
+import {Show} from '../../models/Show';
+import {DataService} from '../../data.service';
 
 @Component({
   selector: 'app-new-show-page',
@@ -8,13 +9,17 @@ import {Show} from "../../models/Show";
 })
 export class NewShowPageComponent implements OnInit {
 
-  constructor() { }
+  newShowSubmit = this.newShow.bind(this);
+
+  constructor(private api: DataService) { }
 
   ngOnInit() {
   }
 
-  newShowSubmit (newShow: Show) {
+  newShow (newShow: Show) {
     console.log(newShow);
+    this.api.addShow(newShow).subscribe(console.dir, console.error);
   }
+
 
 }

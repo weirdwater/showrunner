@@ -29,4 +29,8 @@ export class DataService {
   getShow (slug: string): Observable<ApiResponse<Show>> {
     return this.http.get<ApiResponse<Show>>(`${this.apiBase}/api/shows/${slug}`);
   }
+
+  addShow (show: Show): Observable<ApiResponse<Show>> {
+    return this.http.post<ApiResponse<Show>>(`${this.apiBase}/api/shows`, show);
+  }
 }
