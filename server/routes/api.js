@@ -1,7 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const ObjectID = require('mongodb').ObjectID
-const connection = require('../db').connection
 const showRepo = require('../showRepository')
 
 const sendError = (err, res) => {
