@@ -13,6 +13,7 @@ export class EditShowPageComponent implements OnInit {
 
   show: Show;
   changesSaved = false;
+  saveShowSubmit = this.saveShow.bind(this);
 
   constructor(
     private router: Router,
@@ -25,7 +26,7 @@ export class EditShowPageComponent implements OnInit {
       .subscribe(res => this.show = res.data, console.error);
   }
 
-  saveShowSubmit (show: Show) {
+  saveShow (show: Show) {
     this.api.saveShow(show).subscribe(res => {
       if (res.status === 200) {
         this.changesSaved = true;

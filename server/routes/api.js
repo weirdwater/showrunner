@@ -68,8 +68,8 @@ router.post('/shows', (req, res) => {
   })
 })
 
-router.get('/shows/:id', (req, res) => {
-  const slug = req.params.id;
+router.get('/shows/:slug', (req, res) => {
+  const slug = req.params.slug;
   connection(db => {
     db.collection('shows')
       .findOne({ slug })
@@ -87,6 +87,23 @@ router.get('/shows/:id', (req, res) => {
         res.json(response)
       })
       .catch(err => sendError(err, res))
+  })
+})
+
+router.put('/shows/:slug', (req, res) => {
+  const slug = req.params.slug
+  const showChanges = req.body
+  connection(db => {
+    db.collection('shows')
+      .findOne({ slug })
+      .then(show => {
+        console.log('found show', show)
+        const unchangables = {_id: show._id, episodes: show.episodes, slug: show.slug}
+        const updatedShow = Object.assign({}, show, showChanges, unchangables)
+        db.collection('shows')
+          .save(updatedShow)
+          .then(console.log)
+      })
   })
 })
 

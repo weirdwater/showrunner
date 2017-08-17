@@ -35,6 +35,6 @@ export class DataService {
   }
 
   saveShow (show: Show): Observable<ApiResponse<Show>> {
-    throw Error('Not implemented');
+    return this.http.put<ApiResponse<Show>>(`${this.apiBase}/api/shows/${show.slug}`, show);
   }
 }
