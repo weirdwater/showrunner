@@ -30,6 +30,8 @@ const add = (show) => {
         reject(new Error('Show with slug already exists'))
       }
       else {
+        show.dateCreated = new Date()
+
         connection(db => {
           db.collection('shows')
             .insert(show)
