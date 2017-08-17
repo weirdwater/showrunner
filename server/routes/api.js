@@ -56,26 +56,21 @@ router.post('/shows', (req, res) => {
   })
 })
 
-router.get('/shows/:slug', (req, res) => {
+router.get('/shows/:slug', (req, res, next) => {
   const slug = req.params.slug;
-  connection(db => {
-    db.collection('shows')
-      .findOne({ slug })
-      .then(show => {
-        if (show) {
-          response.data = show
-          res.json(response)
-          return
-        }
-
-        response.status = 404;
-        response.message = `No show found with the slug: ${slug}`
-        console.error(`404 - No show found with the slug: ${slug}`)
+  showRepo.getFromSlug(slug)
+    .then(show => {
+      if (!show) {
+        response.status = 404
+        response.message = `Show with slug ${slug} not found`
         res.status(404)
-        res.json(response)
-      })
-      .catch(err => sendError(err, res))
-  })
+      }
+
+      response.data = show
+      res.json(response)
+    })
+    .catch(next)
+
 })
 
 router.put('/shows/:slug', (req, res) => {
