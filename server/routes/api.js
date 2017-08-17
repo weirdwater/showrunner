@@ -19,7 +19,9 @@ let response = {
 router.get('/shows', (req, res, next) => {
 	showRepo.getAll()
     .then(shows => {
+      response.status = 200
       response.data = shows
+      response.message = null
       res.json(response)
     })
     .catch(next)
@@ -41,13 +43,14 @@ router.get('/shows/:slug', (req, res, next) => {
   const slug = req.params.slug;
   showRepo.get(slug)
     .then(show => {
+      response.status = 200
+      response.data = show
+      response.message = null
       if (!show) {
         response.status = 404
         response.message = `Show with slug ${slug} not found`
         res.status(404)
       }
-
-      response.data = show
       res.json(response)
     })
     .catch(next)
@@ -59,7 +62,9 @@ router.put('/shows/:slug', (req, res, next) => {
   const show = req.body
   showRepo.save(show)
     .then(savedShow => {
+      response.status = 200
       response.data = savedShow
+      response.message = null
       res.json(response)
     })
     .catch(next)
