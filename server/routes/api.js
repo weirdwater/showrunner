@@ -33,9 +33,7 @@ router.get('/users', (req, res) => {
 				response.data = users
 				res.json(response)
 			})
-			.catch(err => {
-				sendError(err, res)
-			})
+			.catch(err => sendError(err, res))
 	})
 })
 
@@ -48,15 +46,26 @@ router.get('/shows', (req, res) => {
 				response.data = shows
 				res.json(response)
 			})
-			.catch(err => {
-				sendError(err, res)
-			})
+			.catch(err => sendError(err, res))
 	})
 })
 
 router.post('/shows', (req, res) => {
-  console.log(req.body)
-  res.send('This was a POST to /shows')
+  const show = req.body
+  connection(db => {
+    db.collection('shows')
+      .insert(show)
+      .then(result => {
+        if (result.result.ok === 1) {
+          const newShow = result.ops[0]
+          response.status = 201
+          response.message = `Show ${newShow.slug} created`
+          response.data = newShow
+          res.json(response)
+        }
+      })
+      .catch(err => sendError(err, res))
+  })
 })
 
 router.get('/shows/:id', (req, res) => {
@@ -77,9 +86,7 @@ router.get('/shows/:id', (req, res) => {
         res.status(404)
         res.json(response)
       })
-      .catch(err => {
-        sendError(err, res)
-      })
+      .catch(err => sendError(err, res))
   })
 })
 
