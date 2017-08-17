@@ -16,19 +16,6 @@ let response = {
 	message: null
 }
 
-router.get('/users', (req, res) => {
-	connection(db => {
-		db.collection('users')
-			.find()
-			.toArray()
-			.then(users => {
-				response.data = users
-				res.json(response)
-			})
-			.catch(err => sendError(err, res))
-	})
-})
-
 router.get('/shows', (req, res, next) => {
 	showRepo.getAll()
     .then(shows => {
