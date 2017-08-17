@@ -32,4 +32,8 @@ export class ShowFormComponent {
   @Input()
   onSubmit: (show: Show) => void;
 
+  constructor() {
+    this.model.episodes = this.model.episodes || [];
+  }
+
 }
