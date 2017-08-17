@@ -1,16 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const MongoClient = require('mongodb').MongoClient
 const ObjectID = require('mongodb').ObjectID
-
-
-const connection = (closure) => {
-	return MongoClient.connect('mongodb://localhost:27017/showrunner', (err, db) => {
-		if (err) return console.log(err)
-
-		closure(db)
-	})
-}
+const connection = require('../db').connection
+const showRepo = require('../showRepository')
 
 const sendError = (err, res) => {
 	response.status = 501
@@ -37,17 +29,13 @@ router.get('/users', (req, res) => {
 	})
 })
 
-router.get('/shows', (req, res) => {
-	connection(db => {
-		db.collection('shows')
-			.find()
-			.toArray()
-			.then(shows => {
-				response.data = shows
-				res.json(response)
-			})
-			.catch(err => sendError(err, res))
-	})
+router.get('/shows', (req, res, next) => {
+	showRepo.getAll()
+    .then(shows => {
+      response.data = shows
+      res.json(response)
+    })
+    .catch(next)
 })
 
 router.post('/shows', (req, res) => {
