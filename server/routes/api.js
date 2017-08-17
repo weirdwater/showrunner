@@ -25,7 +25,7 @@ router.get('/shows', (req, res, next) => {
     .catch(next)
 })
 
-router.post('/shows', (req, res) => {
+router.post('/shows', (req, res, next) => {
   const show = req.body
   showRepo.add(show)
     .then(newShow => {
@@ -54,21 +54,15 @@ router.get('/shows/:slug', (req, res, next) => {
 
 })
 
-router.put('/shows/:slug', (req, res) => {
+router.put('/shows/:slug', (req, res, next) => {
   const slug = req.params.slug
-  const showChanges = req.body
-  connection(db => {
-    db.collection('shows')
-      .findOne({ slug })
-      .then(show => {
-        console.log('found show', show)
-        const unchangables = {_id: show._id, episodes: show.episodes, slug: show.slug}
-        const updatedShow = Object.assign({}, show, showChanges, unchangables)
-        db.collection('shows')
-          .save(updatedShow)
-          .then(console.log)
-      })
-  })
+  const show = req.body
+  showRepo.save(show)
+    .then(savedShow => {
+      response.data = savedShow
+      res.json(response)
+    })
+    .catch(next)
 })
 
 module.exports = router
