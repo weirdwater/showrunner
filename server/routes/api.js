@@ -27,25 +27,19 @@ router.get('/shows', (req, res, next) => {
 
 router.post('/shows', (req, res) => {
   const show = req.body
-  connection(db => {
-    db.collection('shows')
-      .insert(show)
-      .then(result => {
-        if (result.result.ok === 1) {
-          const newShow = result.ops[0]
-          response.status = 201
-          response.message = `Show ${newShow.slug} created`
-          response.data = newShow
-          res.json(response)
-        }
-      })
-      .catch(err => sendError(err, res))
-  })
+  showRepo.add(show)
+    .then(newShow => {
+      response.status = 201
+      response.message = `Show ${newShow.slug} created`
+      response.data = newShow
+      res.json(response)
+    })
+    .catch(next)
 })
 
 router.get('/shows/:slug', (req, res, next) => {
   const slug = req.params.slug;
-  showRepo.getFromSlug(slug)
+  showRepo.get(slug)
     .then(show => {
       if (!show) {
         response.status = 404
