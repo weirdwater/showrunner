@@ -33,4 +33,8 @@ export class DataService {
   addShow (show: Show): Observable<ApiResponse<Show>> {
     return this.http.post<ApiResponse<Show>>(`${this.apiBase}/api/shows`, show);
   }
+
+  saveShow (show: Show): Observable<ApiResponse<Show>> {
+    throw Error('Not implemented');
+  }
 }

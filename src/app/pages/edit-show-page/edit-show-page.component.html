@@ -1,0 +1,4 @@
+<app-shows-list-page>
+  <div *ngIf="changesSaved" >Changes saved</div>
+  <app-show-form *ngIf="show" [model]="show" [onSubmit]="saveShowSubmit"></app-show-form>
+</app-shows-list-page>

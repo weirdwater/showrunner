@@ -1,7 +1,7 @@
 <div class="show-header">
   <h2 class="title">{{show.title}}</h2>
   <button class="rss">RSS</button>
-  <button class="edit">Edit</button>
+  <button class="edit" (click)="edit()">Edit</button>
 </div>
 
 <img class="art" [src]="'/assets/' + show.art" alt="" />
