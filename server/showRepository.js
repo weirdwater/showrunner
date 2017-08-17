@@ -24,20 +24,28 @@ const get = (slug) => {
 }
 
 const add = (show) => {
-  return new Promise((resolve, reject) => {
-    connection(db => {
-      db.collection('shows')
-        .insert(show)
-        .then(status => {
-          if (status.result.ok === 1) {
-            const newShow = result.ops[0]
-            resolve(newShow)
-          }
-          else {
-            reject(status.result)
-          }
+  return new Promise(async (resolve, reject) => {
+    get(show.slug).then(showWithSlug => {
+      if (showWithSlug) {
+        reject(new Error('Show with slug already exists'))
+      }
+      else {
+        connection(db => {
+          db.collection('shows')
+            .insert(show)
+            .then(status => {
+              if (status.result.ok === 1) {
+                console.log('show inserted')
+                const newShow = status.ops[0]
+                resolve(newShow)
+              }
+              else {
+                reject(status.result)
+              }
+            })
+            .catch(reject)
         })
-        .catch(reject)
+      }
     })
   })
 }
