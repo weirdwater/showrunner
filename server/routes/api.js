@@ -54,6 +54,11 @@ router.get('/shows', (req, res) => {
 	})
 })
 
+router.post('/shows', (req, res) => {
+  console.log(req.body)
+  res.send('This was a POST to /shows')
+})
+
 router.get('/shows/:id', (req, res) => {
   const slug = req.params.id;
   connection(db => {

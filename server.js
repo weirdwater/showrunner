@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', 'GET,POST')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
@@ -25,8 +26,4 @@ app.get('*', (req, res) => {
 })
 
 const port = process.env.PORT || '3000'
-app.set('port', port)
-
-const server = http.createServer(app)
-
-server.listen(port, () => console.log(`Running on http://localhost:${port}`))
+app.listen(port, () => console.log(`Running on http://localhost:${port}`))
