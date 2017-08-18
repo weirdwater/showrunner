@@ -11,7 +11,7 @@
 
 <div class="episodes-header">
   <h3>Episodes</h3>
-  <button>New Episode</button>
+  <button (click)="newEpisode()">New Episode</button>
 </div>
 <ol class="episodes">
   <li *ngFor="let ep of show.episodes" class="episode" [value]="ep.number">

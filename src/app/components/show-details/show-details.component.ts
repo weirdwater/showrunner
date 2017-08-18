@@ -25,4 +25,8 @@ export class ShowDetailsComponent implements OnInit {
     window.location.pathname = `/rss/shows/${this.show.slug}`;
   }
 
+  newEpisode () {
+    this.router.navigate(['/shows', this.show.slug, 'episodes', 'new']);
+  }
+
 }
