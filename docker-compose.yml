@@ -1,5 +1,12 @@
 version: "3"
 services:
+  web:
+    image: weirdwater/showrunner:0.1.0
+    ports:
+      - "80:3000"
+    environment:
+      - HOST_DOMAIN=188.226.145.184
+      - PORT=80
   mongo:
     image: mongo:3.4
     ports:

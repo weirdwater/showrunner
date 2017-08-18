@@ -28,5 +28,8 @@ app.get('*', (req, res) => {
 })
 
 const port = process.env.PORT || '3000'
-app.locals.appUrl = `http://localhost:${port}`
-app.listen(port, () => console.log(`Running on ${app.locals.appUrl}`))
+const host = process.env.HOST_DOMAIN || 'localhost'
+
+app.locals.appUrl = port === 80 ? `http://${host}` : `http://${host}:${port}`
+// Docker is exposing port 80
+app.listen(3000, () => console.log(`Running on ${app.locals.appUrl}`))
