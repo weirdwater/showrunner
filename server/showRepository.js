@@ -57,7 +57,6 @@ const save = (show) => {
     const oldShow = await get(show.slug)
     const unchangeAbles = {
       _id: oldShow._id,
-      episodes: oldShow.episodes,
       slug: oldShow.slug
     }
 
@@ -75,7 +74,22 @@ const save = (show) => {
   })
 }
 
+const addEpisode = async (showSlug, episode) => {
+  const show = await get(showSlug)
+
+  if (episode.number === undefined || episode.number === null) {
+    episode.number = show.episodes.length + 1
+  }
+  episode.dateCreated = new Date()
+  show.episodes.push(episode)
+
+  const newShow = await save(show)
+
+  return newShow.episodes[episode.number]
+}
+
 module.exports = {
+  addEpisode,
   getAll,
   get,
   add,

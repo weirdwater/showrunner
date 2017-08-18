@@ -37,6 +37,20 @@ router.post('/shows', (req, res, next) => {
     .catch(next)
 })
 
+router.post('/shows/:slug/episodes', (req, res, next) => {
+  const slug = req.params.slug
+  const episode = req.body
+  try {
+    const newEp = showRepo.addEpisode(slug, episode)
+    response.status = 201
+    response.data = newEp
+    response.message = `Episode ${newEp.number} created for show with slug ${slug}`
+    res.json(response)
+  } catch(err) {
+    next(err)
+  }
+})
+
 router.get('/shows/:slug', (req, res, next) => {
   const slug = req.params.slug;
   showRepo.get(slug)
