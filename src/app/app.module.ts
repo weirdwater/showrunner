@@ -20,6 +20,8 @@ import { NewShowPageComponent } from './pages/new-show-page/new-show-page.compon
 import { EditShowPageComponent } from './pages/edit-show-page/edit-show-page.component';
 import { EpisodeFormComponent } from './components/episode-form/episode-form.component';
 import { NewEpisodePageComponent } from './pages/new-episode-page/new-episode-page.component';
+import { AudioUrlPipePipe } from './pipes/audio-url-pipe.pipe';
+import { DatetimeStringPipePipe } from './pipes/datetime-string-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { NewEpisodePageComponent } from './pages/new-episode-page/new-episode-pa
     NewShowPageComponent,
     EditShowPageComponent,
     EpisodeFormComponent,
-    NewEpisodePageComponent
+    NewEpisodePageComponent,
+    AudioUrlPipePipe,
+    DatetimeStringPipePipe
   ],
   imports: [
     HttpClientModule,

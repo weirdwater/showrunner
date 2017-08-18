@@ -69,6 +69,41 @@
   margin-right: .5em;
 }
 
+.episode-audio {
+  display: block;
+  margin: .5em 0;
+}
+
+.episode-full-summary {
+  font-family: var(--body-font);
+  font-weight: 200;
+}
+
+.episode-full-summary ul,
+.episode-full-summary ol {
+  padding-left: 1em;
+}
+
+.episode-summary-title {
+  margin-top: 1em;
+  display: block;
+  font-family: var(--heading-font);
+  font-weight: 400;
+}
+
+.episode-created {
+  display: block;
+  margin-top: 1em;
+  font-family: var(--heading-font);
+  font-weight: 200;
+  font-size: .8em;
+}
+
+.episode-edit {
+  display: block;
+  margin: .5em 0;
+}
+
 .expand {
   margin: .1em 0 .1em auto;
 }

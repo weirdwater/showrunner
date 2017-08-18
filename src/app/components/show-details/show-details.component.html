@@ -16,14 +16,24 @@
 <ol class="episodes">
   <li *ngFor="let ep of show.episodes" class="episode" [value]="ep.number">
     <span class="episode-number">{{ep.number}}</span>
+
+    <section *ngIf="expandedEp !== ep" class="episode-summary">
+      <span class="episode-title">{{ep.title}}</span>
+      <span class="episode-description">{{ep.subtitle}}</span>
+    </section>
+
     <div *ngIf="expandedEp === ep" class="episodes-details">
-      <span class="episode-title">{{ep.title}}</span>
+      <h1 class="episode-title">{{ep.title}}</h1>
       <span class="episode-description">{{ep.subtitle}}</span>
-    </div>
-    <div *ngIf="expandedEp !== ep" class="episode-summary">
-      <span class="episode-title">{{ep.title}}</span>
-      <span class="episode-description">{{ep.subtitle}}</span>
+      <audio class="episode-audio" controls >
+        <source [src]="ep | audioUrl" type="audio/mp3" >
+      </audio>
+      <span class="episode-summary-title">Show notes:</span>
+      <div class="episode-full-summary" [innerHTML]="ep.summary"></div>
+      <span class="episode-created">Date created: {{ep.dateCreated | datetimeString}}</span>
+      <button class="episode-edit">Edit</button>
     </div>
     <button class="expand" (click)="toggleEpisode(ep)">+</button>
+
   </li>
 </ol>
