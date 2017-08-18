@@ -59,7 +59,7 @@ function newShowFeed(show, req) {
 
     const epiTunes = {
       subtitle: {'itunes:subtitle': episode.subtitle},
-      duration: {'itunes:duration': '1:10:11'},
+      duration: {'itunes:duration': '0:32'},
       summary: {'itunes:summary': episode.summary}
     }
 
