@@ -15,8 +15,5 @@ export class EpisodeFormComponent {
   @Input()
   onSubmit: (show: Show) => void;
 
-  constructor() {
-    this.model.pubDate = this.model.pubDate || new Date();
-  }
 
 }
