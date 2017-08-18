@@ -4,7 +4,7 @@ export class Episode {
   subtitle: string;
   audio: string;
   summary: string;
-  pubDate: Date;
+  dateCreated: string;
 
   constructor () { }
 }

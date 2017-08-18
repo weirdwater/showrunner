@@ -11,8 +11,5 @@
   <label for="summary">Summary</label>
   <input type="text" id="summary" required name="summary" [(ngModel)]="model.summary">
 
-  <label for="pubDate">Publication date</label>
-  <input type="datetime-local" id="pubDate" required name="pubDate" [(ngModel)]="model.pubDate">
-
   <button type="submit" [disabled]="!showForm.form.valid">Submit</button>
 </form>
