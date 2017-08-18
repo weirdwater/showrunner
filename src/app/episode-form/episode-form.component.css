@@ -3,6 +3,12 @@ label, button {
   display: block;
 }
 
-input, select {
+input, select, textarea {
   margin-left: 1em;
+}
+
+textarea {
+  font-family: var(--mono-font);
+  font-size: .8em;
+  margin-left: calc(1em / .8);
 }

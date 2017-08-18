@@ -6,6 +6,7 @@
   --alt-background-color: #eee;
   --heading-font: 'Roboto Slab', sans-serif;
   --body-font: 'Roboto', sans-serif;
+  --mono-font: 'Roboto Mono', monospace;
   --the-border: 1px solid var(--foreground-color);
 }
 
@@ -44,7 +45,7 @@ label {
   font-size: 1.1em;
 }
 
-input, select {
+input, select, textarea {
   padding: .35em;
   font-family: var(--heading-font);
   font-size: .9em;

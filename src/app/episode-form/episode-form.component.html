@@ -8,8 +8,8 @@
   <label for="audio">Audio file location</label>
   <input type="text" id="audio" required name="audio" [(ngModel)]="model.audio">
 
-  <label for="summary">Summary</label>
-  <input type="text" id="summary" required name="summary" [(ngModel)]="model.summary">
+  <label for="summary">Show notes:</label>
+  <textarea id="summary" required name="summary" [(ngModel)]="model.summary"></textarea>
 
   <button type="submit" [disabled]="!episodeForm.form.valid">Submit</button>
 </form>
