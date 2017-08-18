@@ -31,7 +31,6 @@
       <span class="episode-summary-title">Show notes:</span>
       <div class="episode-full-summary" [innerHTML]="ep.summary"></div>
       <span class="episode-created">Date created: {{ep.dateCreated | datetimeString}}</span>
-      <button class="episode-edit">Edit</button>
     </div>
     <button class="expand" (click)="toggleEpisode(ep)">+</button>
 
