@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Episode} from '../../models/Episode';
 import {Router, ActivatedRoute} from '@angular/router';
-import 'rxjs/add/operator/switchMap'
+import 'rxjs/add/operator/switchMap';
 import {DataService} from '../../data.service';
 import {Show} from '../../models/Show';
 
