@@ -2,9 +2,36 @@ const express = require('express')
 const router = express.Router()
 const showRepo = require('../showRepository')
 const RSS = require('rss')
+const fs = require('fs')
+
+function getFileSizeInBytes(filePath) {
+  const stats = fs.statSync(filePath)
+  return stats.size
+}
 
 function newShowFeed(show, req) {
   const { appUrl } = req.app.locals
+
+  const itunes = {
+    author: {'itunes:author': show.author},
+    summary: {'itunes:summary': show.description},
+    owner: {'itunes:owner': [
+      {"itunes:name": 'Arjo Bruijnes'},
+      {"itunes:email": 'arjo@weirdwater.net'}
+    ]},
+    image: {'itunes:image': {
+      _attr: {
+        href: `${appUrl}/assets/${show.art}`
+      }
+    }},
+    category: {'itunes:category': {
+      _attr: {
+        text: show.category
+      }
+    }}
+  }
+
+
   const feed = new RSS({
     title: show.title,
     description: show.description,
@@ -17,28 +44,40 @@ function newShowFeed(show, req) {
       itunes: 'http://www.itunes.com/dtds/podcast-1.0.dtd'
     },
     custom_elements: [
-      {'itunes:author': show.author},
-      {'itunes:summary': show.description},
-      {'itunes:owner': [
-        {"itunes:name": 'Arjo Bruijnes'},
-        {"itunes:email": 'arjo@weirdwater.net'}
-      ]},
-      {'itunes:image': {
-        _attr: {
-          href: `${appUrl}/assets/${show.art}`
-        }
-      }},
-      {'itunes:category': {
-        _attr: {
-          text: show.category
-        }
-      }}
+      itunes.author,
+      itunes.summary,
+      itunes.owner,
+      itunes.image,
+      itunes.category
     ]
   })
 
   show.episodes.forEach(episode => {
+    const audioFile = 'assets/audio/test.mp3'
+    const audioFilePath = `./dist/${audioFile}`
+    const audioUrl = `${appUrl}/${audioFile}`
+
+    const epiTunes = {
+      subtitle: {'itunes:subtitle': episode.subtitle},
+      duration: {'itunes:duration': '1:10:11'},
+      summary: {'itunes:summary': episode.summary}
+    }
+
     feed.item({
-      title: episode.title
+      title: episode.title,
+      guid: audioUrl,
+      date: episode.dateCreated,
+      enclosure: {
+        url: audioUrl,
+        size: getFileSizeInBytes(audioFilePath),
+        type: 'audio/mp3'
+      },
+      custom_elements: [
+        itunes.author,
+        epiTunes.subtitle,
+        epiTunes.duration,
+        epiTunes.summary
+      ]
     })
   })
 
