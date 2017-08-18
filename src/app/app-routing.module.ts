@@ -5,7 +5,7 @@ import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.compo
 import {ShowsPageComponent} from './pages/shows-page/shows-page.component';
 import {NewShowPageComponent} from './pages/new-show-page/new-show-page.component';
 import {EditShowPageComponent} from './pages/edit-show-page/edit-show-page.component';
-import {NewEpisodePageComponent} from "./new-episode-page/new-episode-page.component";
+import {NewEpisodePageComponent} from "./pages/new-episode-page/new-episode-page.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'shows', pathMatch: 'full'},

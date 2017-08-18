@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Episode} from '../models/Episode';
-import {Show} from '../models/Show';
+import {Episode} from '../../models/Episode';
+import {Show} from '../../models/Show';
 
 @Component({
   selector: 'app-episode-form',

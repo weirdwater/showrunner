@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Episode} from '../models/Episode';
+import {Episode} from '../../models/Episode';
 import {Router, ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap'
-import {DataService} from '../data.service';
-import {Show} from '../models/Show';
+import {DataService} from '../../data.service';
+import {Show} from '../../models/Show';
 
 @Component({
   selector: 'app-new-episode-page',

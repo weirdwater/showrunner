@@ -18,8 +18,8 @@ import { ShowsPageComponent } from './pages/shows-page/shows-page.component';
 import { ShowFormComponent } from './components/show-form/show-form.component';
 import { NewShowPageComponent } from './pages/new-show-page/new-show-page.component';
 import { EditShowPageComponent } from './pages/edit-show-page/edit-show-page.component';
-import { EpisodeFormComponent } from './episode-form/episode-form.component';
-import { NewEpisodePageComponent } from './new-episode-page/new-episode-page.component';
+import { EpisodeFormComponent } from './components/episode-form/episode-form.component';
+import { NewEpisodePageComponent } from './pages/new-episode-page/new-episode-page.component';
 
 @NgModule({
   declarations: [
