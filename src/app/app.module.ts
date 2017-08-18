@@ -18,6 +18,7 @@ import { ShowsPageComponent } from './pages/shows-page/shows-page.component';
 import { ShowFormComponent } from './components/show-form/show-form.component';
 import { NewShowPageComponent } from './pages/new-show-page/new-show-page.component';
 import { EditShowPageComponent } from './pages/edit-show-page/edit-show-page.component';
+import { EpisodeFormComponent } from './episode-form/episode-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EditShowPageComponent } from './pages/edit-show-page/edit-show-page.com
     ShowsPageComponent,
     ShowFormComponent,
     NewShowPageComponent,
-    EditShowPageComponent
+    EditShowPageComponent,
+    EpisodeFormComponent
   ],
   imports: [
     HttpClientModule,

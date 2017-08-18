@@ -12,6 +12,7 @@ export class Show {
   link: string;
   language: string;
   author: string;
+  dateCreated: Date;
 
 
   constructor() { }
