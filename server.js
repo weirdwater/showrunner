@@ -6,6 +6,7 @@ const http = require('http')
 const app = express()
 
 const api = require('./server/routes/api')
+const rss = require('./server/routes/rss')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
@@ -20,10 +21,12 @@ app.use(function (req, res, next) {
 app.use(express.static(path.join(__dirname, 'dist')))
 
 app.use('/api', api)
+app.use('/rss', rss)
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'dist/index.html'))
 })
 
 const port = process.env.PORT || '3000'
-app.listen(port, () => console.log(`Running on http://localhost:${port}`))
+app.locals.appUrl = `http://localhost:${port}`
+app.listen(port, () => console.log(`Running on ${app.locals.appUrl}`))
