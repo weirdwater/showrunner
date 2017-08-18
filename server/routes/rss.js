@@ -36,6 +36,12 @@ function newShowFeed(show, req) {
     ]
   })
 
+  show.episodes.forEach(episode => {
+    feed.item({
+      title: episode.title
+    })
+  })
+
   return feed
 }
 
