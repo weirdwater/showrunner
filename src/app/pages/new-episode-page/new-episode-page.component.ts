@@ -30,7 +30,8 @@ export class NewEpisodePageComponent implements OnInit {
     this.api.addEpisode(this.show.slug, episode)
       .subscribe(res => {
         if (res.status === 201) {
-          this.router.navigate(['/shows', this.show.slug]);
+          this.router.navigate(['/shows', this.show.slug],
+            {replaceUrl: true});
         }
       }, console.error);
   }
