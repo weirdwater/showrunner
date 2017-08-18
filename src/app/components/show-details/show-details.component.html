@@ -16,10 +16,14 @@
 <ol class="episodes">
   <li *ngFor="let ep of show.episodes" class="episode" [value]="ep.number">
     <span class="episode-number">{{ep.number}}</span>
-    <div class="episode-summary">
+    <div *ngIf="expandedEp === ep" class="episodes-details">
       <span class="episode-title">{{ep.title}}</span>
       <span class="episode-description">{{ep.subtitle}}</span>
     </div>
-    <button class="expand">+</button>
+    <div *ngIf="expandedEp !== ep" class="episode-summary">
+      <span class="episode-title">{{ep.title}}</span>
+      <span class="episode-description">{{ep.subtitle}}</span>
+    </div>
+    <button class="expand" (click)="toggleEpisode(ep)">+</button>
   </li>
 </ol>
