@@ -15,5 +15,8 @@ export class EpisodeFormComponent {
   @Input()
   onSubmit: (show: Show) => void;
 
+  constructor () {
+    this.model.audio = 'test.mp3';
+  }
 
 }

@@ -34,6 +34,7 @@ export class ShowFormComponent {
 
   constructor() {
     this.model.episodes = this.model.episodes || [];
+    this.model.art = 'art.png';
   }
 
 }
