@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {User} from "./models/User";
 import {Show} from "./models/Show";
+import {Episode} from "./models/Episode";
 
 export interface ApiResponse<T> {
   status: number;
@@ -36,5 +37,9 @@ export class DataService {
 
   saveShow (show: Show): Observable<ApiResponse<Show>> {
     return this.http.put<ApiResponse<Show>>(`${this.apiBase}/api/shows/${show.slug}`, show);
+  }
+
+  addEpisode (showSlug: string, episode: Episode): Observable<ApiResponse<Object>> {
+    return this.http.post<ApiResponse<Object>>(`${this.apiBase}/api/shows/${showSlug}/episodes`, episode);
   }
 }
