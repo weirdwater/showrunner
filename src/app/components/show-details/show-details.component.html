@@ -4,10 +4,32 @@
   <button class="edit" (click)="edit()">Edit</button>
 </div>
 
-<img class="art" [src]="'/assets/' + show.art" alt="" />
+<div class="show-deets">
+  <img class="art" [src]="'/assets/' + show.art" alt="" />
 
-<label>Category</label>
-<span>{{show.category}}</span>
+  <ul class="show-deets-list">
+    <li>
+      <label>Category:</label>
+      <span class="detail">{{show.category}}</span>
+    </li>
+    <li>
+      <label>Copyright:</label>
+      <span class="detail">{{show.copyright}}</span>
+    </li>
+    <li>
+      <label>Author:</label>
+      <span class="detail">{{show.author}}</span>
+    </li>
+    <li>
+      <label>Date created:</label>
+      <span class="detail">{{show.dateCreated | datetimeString}}</span>
+    </li>
+    <li>
+      <label>Description:</label>
+      <p class="detail">{{show.description}}</p>
+    </li>
+  </ul>
+</div>
 
 <div class="episodes-header">
   <h3>Episodes</h3>

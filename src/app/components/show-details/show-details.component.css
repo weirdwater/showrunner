@@ -13,6 +13,29 @@
   margin-right: .5em;
 }
 
+.show-deets {
+  padding: 0 .6em;
+  display: flex;
+}
+
+.show-deets-list {
+  padding: 0 .6em;
+}
+
+.show-deets-list li {
+  margin-top: .5em;
+  list-style: none;
+}
+
+.show-deets-list li:first-of-type {
+  margin-top: 0;
+}
+
+.detail {
+  font-family: var(--body-font);
+  font-weight: 200;
+}
+
 .art {
   width: 12.5em;
   height: 12.5em;
