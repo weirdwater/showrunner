@@ -26,6 +26,11 @@ export class ShowFormComponent {
     'TV & Film'
   ];
 
+  languages: [{code: string, name: string}] = [
+    {code: 'nl', name: 'Dutch'},
+    {code: 'en', name: 'English'}
+  ];
+
   @Input()
   model = new Show();
 
@@ -35,6 +40,8 @@ export class ShowFormComponent {
   constructor() {
     this.model.episodes = this.model.episodes || [];
     this.model.art = 'art.png';
+    this.model.language = 'en';
+    this.model.category = 'Arts';
   }
 
 }

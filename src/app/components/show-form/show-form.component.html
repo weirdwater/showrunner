@@ -22,7 +22,10 @@
   <input type="text" id="copyright" required [(ngModel)]="model.copyright" name="copyright">
 
   <label for="language">Language:</label>
-  <input type="text" id="language" required [(ngModel)]="model.language" name="language">
+  <select id="language" required [(ngModel)]="model.language" name="language">
+    <option *ngFor="let lang of languages" [value]="lang.code">{{lang.name}}</option>
+  </select>
+
 
   <label for="author">Author:</label>
   <input type="text" id="author" required [(ngModel)]="model.author" name="author">
