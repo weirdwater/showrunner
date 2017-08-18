@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Episode} from '../models/Episode';
-import {ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/switchMap'
 import {DataService} from '../data.service';
 import {Show} from '../models/Show';
@@ -17,6 +17,7 @@ export class NewEpisodePageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private api: DataService) { }
 
   ngOnInit() {
@@ -26,6 +27,11 @@ export class NewEpisodePageComponent implements OnInit {
   }
 
   newEpisode (episode: Episode): void {
-    this.api.addEpisode(this.show.slug, episode);
+    this.api.addEpisode(this.show.slug, episode)
+      .subscribe(res => {
+        if (res.status === 201) {
+          this.router.navigate(['/shows', this.show.slug]);
+        }
+      }, console.error);
   }
 }

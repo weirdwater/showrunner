@@ -15,31 +15,31 @@ export interface ApiResponse<T> {
 @Injectable()
 export class DataService {
 
-  apiBase = 'http://localhost:3000';
+  apiBase = 'http://localhost:3000/api';
 
   constructor (private http: HttpClient) { }
 
   getUsers (): Observable<ApiResponse<User[]>> {
-    return this.http.get<ApiResponse<User[]>>(`${this.apiBase}/api/users`);
+    return this.http.get<ApiResponse<User[]>>(`${this.apiBase}/users`);
   }
 
   getShows (): Observable<ApiResponse<Show[]>> {
-    return this.http.get<ApiResponse<Show[]>>(`${this.apiBase}/api/shows`);
+    return this.http.get<ApiResponse<Show[]>>(`${this.apiBase}/shows`);
   }
 
   getShow (slug: string): Observable<ApiResponse<Show>> {
-    return this.http.get<ApiResponse<Show>>(`${this.apiBase}/api/shows/${slug}`);
+    return this.http.get<ApiResponse<Show>>(`${this.apiBase}/shows/${slug}`);
   }
 
   addShow (show: Show): Observable<ApiResponse<Show>> {
-    return this.http.post<ApiResponse<Show>>(`${this.apiBase}/api/shows`, show);
+    return this.http.post<ApiResponse<Show>>(`${this.apiBase}/shows`, show);
   }
 
   saveShow (show: Show): Observable<ApiResponse<Show>> {
-    return this.http.put<ApiResponse<Show>>(`${this.apiBase}/api/shows/${show.slug}`, show);
+    return this.http.put<ApiResponse<Show>>(`${this.apiBase}/shows/${show.slug}`, show);
   }
 
-  addEpisode (showSlug: string, episode: Episode): Observable<ApiResponse<Object>> {
-    return this.http.post<ApiResponse<Object>>(`${this.apiBase}/api/shows/${showSlug}/episodes`, episode);
+  addEpisode (showSlug: string, episode: Episode): Observable<ApiResponse<Episode>> {
+    return this.http.post<ApiResponse<Episode>>(`${this.apiBase}/shows/${showSlug}/episodes`, episode);
   }
 }
