@@ -1,25 +1,21 @@
-const connection = require('./db').connection
+const db = require('./db')
 
 const getAll = () => {
   return new Promise((resolve, reject) => {
-    connection(db => {
-      db.collection('shows')
-        .find()
-        .toArray()
-        .then(resolve)
-        .catch(reject)
-    })
+    db.get().collection('shows')
+      .find()
+      .toArray()
+      .then(resolve)
+      .catch(reject)
   })
 }
 
 const get = (slug) => {
   return new Promise((resolve, reject) => {
-    connection(db => {
-      db.collection('shows')
-        .findOne({ slug })
-        .then(resolve)
-        .catch(reject)
-    })
+    db.get().collection('shows')
+      .findOne({ slug })
+      .then(resolve)
+      .catch(reject)
   })
 }
 
@@ -32,21 +28,19 @@ const add = (show) => {
       else {
         show.dateCreated = new Date()
 
-        connection(db => {
-          db.collection('shows')
-            .insert(show)
-            .then(status => {
-              if (status.result.ok === 1) {
-                console.log('show inserted')
-                const newShow = status.ops[0]
-                resolve(newShow)
-              }
-              else {
-                reject(status.result)
-              }
-            })
-            .catch(reject)
-        })
+        db.get().collection('shows')
+          .insert(show)
+          .then(status => {
+            if (status.result.ok === 1) {
+              console.log('show inserted')
+              const newShow = status.ops[0]
+              resolve(newShow)
+            }
+            else {
+              reject(status.result)
+            }
+          })
+          .catch(reject)
       }
     })
   })
@@ -62,15 +56,13 @@ const save = (show) => {
 
     const nextShow = Object.assign({}, oldShow, show, unchangeAbles)
 
-    connection(db => {
-      db.collection('shows')
-        .save(nextShow)
-        .then(status => {
-          if (status.result.ok) resolve(nextShow)
-          else reject(new Error('Something went wrong with saving'))
-        })
-        .catch(reject)
-    })
+    db.get().collection('shows')
+      .save(nextShow)
+      .then(status => {
+        if (status.result.ok) resolve(nextShow)
+        else reject(new Error('Something went wrong with saving'))
+      })
+      .catch(reject)
   })
 }
 

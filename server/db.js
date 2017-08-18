@@ -1,11 +1,35 @@
 const MongoClient = require('mongodb').MongoClient
 
-module.exports = {
-  connection: (closure) => {
-    return MongoClient.connect(`mongodb://mongo:27017/showrunner`, (err, db) => {
-      if (err) return console.log(err)
+const state = {
+  db: null
+}
 
-      closure(db)
+const connect = (url, done) => {
+  if (state.db) return done()
+
+  MongoClient.connect(url, (err, db) => {
+    if (err) return done(err)
+    state.db = db
+    done()
+  })
+}
+
+const get = () => {
+  return state.db
+}
+
+const close = (done) => {
+  if (state.db) {
+    state.db.close((err, result) => {
+      state.db = null
+      state.mode = null
+      done(err)
     })
   }
+}
+
+module.exports = {
+  connect,
+  get,
+  close
 }
