@@ -15,7 +15,7 @@ export interface ApiResponse<T> {
 @Injectable()
 export class DataService {
 
-  apiBase = 'http://188.226.145.184/api';
+  apiBase = '/api';
 
   constructor (private http: HttpClient) { }
 
